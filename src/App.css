@@ -6,9 +6,28 @@
 .App-header {
 	text-align: center;
 	height: 10em;
-	background: yellow;
+	position: relative;
+	background: var(--bg-primary);
+	padding-top: 0.9em;
+}
+
+.App-header__content {
+	color: var(--color-secundary);
+}
+
+.App-header__wave {
+	position: absolute;
+	top: 100%;
+	width: 100%;
+}
+
+.App-header__wave svg path {
+	fill: var(--bg-primary);
 }
 
 .App-body {
 	height: calc(100vh - 10em);
+	overflow: hidden auto;
+	position: relative;
+	z-index: 10;
 }

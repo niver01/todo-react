@@ -6,8 +6,6 @@ modal.classList.add('Modal');
 document.body.appendChild(modal);
 
 export function Modal({ children, open, width, onClose }) {
-	console.log(open);
-
 	function handleStopPropagation(event) {
 		event.stopPropagation();
 	}

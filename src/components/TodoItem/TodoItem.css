@@ -1,5 +1,5 @@
 .TodoItem {
-	background-color: green;
+	background-color: var(--bg-2);
 	list-style: none;
 	padding: 1em;
 	border-radius: 2em;
@@ -7,6 +7,7 @@
 	justify-content: space-between;
 	gap: 0.5em;
 	align-items: center;
+	color: var(--color-secundary);
 }
 
 .TodoItem-text {
@@ -15,4 +16,15 @@
 
 .TodoItem-text--completed {
 	text-decoration: line-through;
+}
+
+.Icon-delete button {
+	border: 0;
+	outline: 0;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.Icon-delete button svg {
+	fill: var(--bg-danger);
 }

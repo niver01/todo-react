@@ -4,88 +4,63 @@ import { TodoItem } from './components/TodoItem';
 import { TodoSearch } from './components/TodoSearch';
 import { CreateTodoButton } from './components/CreateTodoButton';
 import { TodoContext } from './components/TodoContent';
-import { Modal, ModalHeader, ModalBody, ModalFooter } from './components/Modal';
+import { Modal } from './components/Modal';
 import { useState } from 'react';
-import { Button } from './components/Button';
+import { FormTodo } from './components/FormTodo';
+import { NoData } from './components/NoData';
 
 export function AppUI() {
-	const [open1, setOpen1] = useState(false);
-	const [open2, setOpen2] = useState(false);
+	const [openModal, setOpenModal] = useState(false);
 	return (
 		<div className="App">
 			<div className="App-header">
-				<TodoCounter />
-				<TodoSearch />
+				<div className="App-header__content">
+					<TodoCounter />
+					<TodoSearch />
+				</div>
+				<div className="App-header__wave">
+					<div style={{ height: '150px', overflow: 'hidden' }}>
+						<svg
+							viewBox="0 0 500 150"
+							preserveAspectRatio="none"
+							style={{ height: '100%', width: '100%' }}
+						>
+							<path
+								d="M0.00,49.98 C150.00,150.00 271.49,-50.00 500.00,49.98 L500.00,0.00 L0.00,0.00 Z"
+								style={{ stroke: 'none' }}
+							></path>
+						</svg>
+					</div>
+				</div>
 			</div>
 
 			<div className="App-body">
 				<TodoContext.Consumer>
-					{({ filterTodos, toggleCompleteTodo, deleteTodo }) => (
-						<TodoList>
-							{filterTodos.length ? (
-								filterTodos.map((item) => (
-									<TodoItem
-										key={item._id}
-										{...item}
-										onToggleComplete={() => toggleCompleteTodo(item._id)}
-										onDelete={() => deleteTodo(item._id)}
-									/>
-								))
-							) : (
-								<p>No se encontarron registros</p>
-							)}
+					{({ filterTodos, toggleCompleteTodo, deleteTodo, totalTodos }) => (
+						<>
+							<TodoList>
+								{filterTodos.length ? (
+									filterTodos.map((item) => (
+										<TodoItem
+											key={item._id}
+											{...item}
+											onToggleComplete={() => toggleCompleteTodo(item._id)}
+											onDelete={() => deleteTodo(item._id)}
+										/>
+									))
+								) : (
+									<NoData onOpenModal={setOpenModal} />
+								)}
+							</TodoList>
 
-							<Button onClick={() => setOpen1(true)}>Open modal</Button>
-						</TodoList>
+							{totalTodos > 0 && <CreateTodoButton onOpenModal={setOpenModal} />}
+						</>
 					)}
 				</TodoContext.Consumer>
 			</div>
 
-			<CreateTodoButton />
-
-			<Modal open={open1} width="26em" onClose={() => setOpen1(false)}>
-				<ModalHeader>
-					<h2>tittle</h2>
-				</ModalHeader>
-				<ModalBody>
-					<p>
-						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet laudantium ullam
-						laborum deleniti veritatis ab asperiores beatae iure commodi illo aliquam consectetur
-						quibusdam exercitationem sed nisi modi, repudiandae inventore earum. Quisquam sint dolor
-						et nemo odio quo, deserunt, vel molestias atque tempore, veritatis assumenda maiores
-						facilis nobis provident enim ad delectus neque iste nesciunt eveniet. Repellat placeat
-						ut accusantium laudantium.
-					</p>
-					<p>
-						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet laudantium ullam
-						laborum deleniti veritatis ab asperiores beatae iure commodi illo aliquam consectetur
-						quibusdam exercitationem sed nisi modi, repudiandae inventore earum. Quisquam sint dolor
-						et nemo odio quo, deserunt, vel molestias atque tempore, veritatis assumenda maiores
-						facilis nobis provident enim ad delectus neque iste nesciunt eveniet. Repellat placeat
-						ut accusantium laudantium.
-					</p>
-				</ModalBody>
-				<ModalFooter>
-					<Button color="secundary" onClick={() => setOpen1(false)}>
-						Close modal
-					</Button>
-					<Button onClick={() => setOpen2(true)}>Open modal child</Button>
-				</ModalFooter>
-			</Modal>
-			<Modal open={open2} width="10em">
-				<ModalHeader>
-					<h2>tittle</h2>
-				</ModalHeader>
-				<ModalBody>
-					<p>
-						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam illo nulla facilis
-						architecto dolorum sit quaerat repellendus eligendi veniam tempore libero sint nostrum
-						delectus corporis, id nesciunt sequi tenetur doloremque.
-					</p>
-				</ModalBody>
-				<ModalFooter>
-					<Button onClick={() => setOpen2(false)}>Close modal child</Button>
-				</ModalFooter>
+			<Modal open={openModal} width="26em" onClose={() => setOpenModal(false)}>
+				<FormTodo onOpenModal={setOpenModal} />
 			</Modal>
 		</div>
 	);

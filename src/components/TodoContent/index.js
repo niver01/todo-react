@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { createContext } from 'react';
 import { useLocalStorage } from './../../hooks/useLocalStorage';
+import { generateUUID } from './../../utils/utils';
 
 const TodoContext = createContext();
 
@@ -15,13 +16,17 @@ function TodoProvider({ children }) {
 		item.text.toLowerCase().includes(searchValue.toLowerCase())
 	);
 
+	function saveTodos(newTodos) {
+		setTodos(newTodos);
+		localStorage.setItem('TODOS_V1', JSON.stringify(newTodos));
+	}
+
 	function toggleCompleteTodo(id) {
 		const index = todos.findIndex((t) => t._id === id);
 		if (index !== -1) {
 			const newTodos = [...todos];
 			newTodos[index].completed = !newTodos[index].completed;
-			setTodos(newTodos);
-			localStorage.setItem('TODOS_V1', JSON.stringify(newTodos));
+			saveTodos(newTodos);
 		}
 	}
 
@@ -30,12 +35,19 @@ function TodoProvider({ children }) {
 		if (index !== -1) {
 			const newTodos = [...todos];
 			newTodos.splice(index, 1);
-			setTodos(newTodos);
-			localStorage.setItem('TODOS_V1', JSON.stringify(newTodos));
+			saveTodos(newTodos);
 		}
 	}
 
-	console.log('filterTodos', filterTodos);
+	function addTodo(text) {
+		const newTodos = [...todos];
+		newTodos.push({
+			_id: generateUUID(),
+			text,
+			completed: false,
+		});
+		saveTodos(newTodos);
+	}
 
 	return (
 		<TodoContext.Provider
@@ -47,6 +59,7 @@ function TodoProvider({ children }) {
 				deleteTodo,
 				searchValue,
 				setSearchValue,
+				addTodo,
 			}}
 		>
 			{children}

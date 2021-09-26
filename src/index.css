@@ -4,9 +4,32 @@
 	box-sizing: border-box;
 }
 
+:root {
+	--bg-1: #181818;
+	--bg-2: #323232;
+
+	--bg-primary: rgb(88, 73, 224);
+	--bg-primary-hover: rgba(88, 73, 224, 0.8);
+
+	--bg-secundary: rgb(121, 121, 121);
+	--bg-secundary-hover: rgba(0, 0, 0, 0.1);
+
+	--bg-overlay: rgba(0, 0, 0, 0.32);
+
+	--color-primary: rgb(88, 73, 224);
+	--color-secundary: #fff;
+	--font-family: 'Roboto', sans-serif;
+
+	--transition-delay: 0.3s;
+
+	--bg-danger: #e85454;
+}
+
 body {
-	font-family: 'Roboto', sans-serif;
+	font-family: var(--font-family);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	overflow: hidden;
+
+	background-color: var(--bg-1);
 }

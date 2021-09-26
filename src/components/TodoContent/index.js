@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { createContext } from 'react';
+import { useState, createContext } from 'react';
 import { useLocalStorage } from './../../hooks/useLocalStorage';
 import { generateUUID } from './../../utils/utils';
 

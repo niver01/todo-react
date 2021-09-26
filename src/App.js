@@ -1,4 +1,3 @@
-import './App.css';
 import { TodoProvider } from './components/TodoContent';
 import { AppUI } from './AppUI';
 

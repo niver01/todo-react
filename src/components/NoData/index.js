@@ -1,7 +1,7 @@
+import { useContext } from 'react';
 import { TodoContext } from '../TodoContent';
 import { Button } from './../Button/index';
 import './NoData.css';
-import { useContext } from 'react';
 
 export function NoData({ onOpenModal }) {
 	const { totalTodos } = useContext(TodoContext);

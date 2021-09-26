@@ -4,8 +4,8 @@ import { ModalBody } from './../Modal/ModalBody';
 import { ModalFooter } from './../Modal/ModalFooter';
 import { Button } from '../Button';
 import { TodoContext } from '../TodoContent';
-import './FormTodo.css';
 import { TextArea } from './../Control';
+import './FormTodo.css';
 
 export function FormTodo({ onOpenModal }) {
 	const [value, setValue] = useState('');

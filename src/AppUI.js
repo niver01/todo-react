@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { TodoCounter } from './components/TodoCounter';
 import { TodoList } from './components/TodoList';
 import { TodoItem } from './components/TodoItem';
@@ -5,9 +6,9 @@ import { TodoSearch } from './components/TodoSearch';
 import { CreateTodoButton } from './components/CreateTodoButton';
 import { TodoContext } from './components/TodoContent';
 import { Modal } from './components/Modal';
-import { useState } from 'react';
 import { FormTodo } from './components/FormTodo';
 import { NoData } from './components/NoData';
+import './App.css';
 
 export function AppUI() {
 	const [openModal, setOpenModal] = useState(false);

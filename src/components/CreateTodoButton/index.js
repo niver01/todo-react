@@ -1,5 +1,5 @@
-import './CreateTodoButton.css';
 import { Button } from './../Button/index';
+import './CreateTodoButton.css';
 
 export function CreateTodoButton({ onOpenModal }) {
 	function handleOpenModal() {

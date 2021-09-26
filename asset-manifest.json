@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/niver01/todo-react/static/css/main.f641dc0a.chunk.css",
+    "main.js": "/niver01/todo-react/static/js/main.536f72b2.chunk.js",
+    "main.js.map": "/niver01/todo-react/static/js/main.536f72b2.chunk.js.map",
+    "runtime-main.js": "/niver01/todo-react/static/js/runtime-main.82eb7637.js",
+    "runtime-main.js.map": "/niver01/todo-react/static/js/runtime-main.82eb7637.js.map",
+    "static/js/2.d8829b3e.chunk.js": "/niver01/todo-react/static/js/2.d8829b3e.chunk.js",
+    "static/js/2.d8829b3e.chunk.js.map": "/niver01/todo-react/static/js/2.d8829b3e.chunk.js.map",
+    "static/js/3.aa18583a.chunk.js": "/niver01/todo-react/static/js/3.aa18583a.chunk.js",
+    "static/js/3.aa18583a.chunk.js.map": "/niver01/todo-react/static/js/3.aa18583a.chunk.js.map",
+    "index.html": "/niver01/todo-react/index.html",
+    "static/css/main.f641dc0a.chunk.css.map": "/niver01/todo-react/static/css/main.f641dc0a.chunk.css.map",
+    "static/js/2.d8829b3e.chunk.js.LICENSE.txt": "/niver01/todo-react/static/js/2.d8829b3e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.82eb7637.js",
+    "static/js/2.d8829b3e.chunk.js",
+    "static/css/main.f641dc0a.chunk.css",
+    "static/js/main.536f72b2.chunk.js"
+  ]
+}

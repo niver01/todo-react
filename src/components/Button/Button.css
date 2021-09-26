@@ -1,0 +1,28 @@
+.Button {
+	border: 0;
+	outline: 0;
+	cursor: pointer;
+	line-height: 3em;
+	border-radius: 1.5em;
+	padding: 0 1em;
+	transition: all 0.3s;
+}
+
+.Button.fab {
+	width: 4em;
+	height: 4em;
+	border-radius: 50%;
+}
+
+.Button.primary {
+	color: #fff;
+	background-color: rgb(88, 73, 224);
+}
+
+.Button.secundary {
+	background-color: inherit;
+}
+
+.Button.secundary:hover {
+	background-color: rgba(0, 0, 0, 0.1);
+}

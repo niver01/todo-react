@@ -5,13 +5,4 @@
 	bottom: 2em;
 	left: 50%;
 	transform: translateX(-50%);
-	background-color: red;
-	border: none;
-	outline: 0;
-	padding: 0.5em;
-	border-radius: 50%;
-	width: var(--size);
-	height: var(--size);
-	cursor: pointer;
-	color: #fff;
 }
